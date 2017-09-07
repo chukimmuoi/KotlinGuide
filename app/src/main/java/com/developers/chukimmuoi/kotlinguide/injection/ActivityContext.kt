@@ -13,7 +13,6 @@ import javax.inject.Qualifier
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
  */
-
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 annotation class ActivityContext

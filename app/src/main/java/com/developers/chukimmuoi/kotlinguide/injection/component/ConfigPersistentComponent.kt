@@ -13,11 +13,10 @@ import dagger.Component
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
  */
-
 @ConfigPersistent
 @Component(dependencies = arrayOf(ApplicationComponent::class))
 interface ConfigPersistentComponent {
 
-    fun activityComponet(activityModule: ActivityModule): ActivityComponent
+    fun activityComponent(activityModule: ActivityModule): ActivityComponent
 
 }

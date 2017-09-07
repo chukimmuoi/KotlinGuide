@@ -16,7 +16,6 @@ import javax.inject.Singleton
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
  */
-
 @Singleton
 @Component(modules = arrayOf(ApplicationModule::class))
 interface ApplicationComponent {

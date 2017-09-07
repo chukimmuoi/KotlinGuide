@@ -45,7 +45,7 @@ class BaseActivity : AppCompatActivity() {
             Timber.i("Reusing ConfigPersistentComponent id=%d", mActivityId);
             configPersistentComponent = sComponentsMap.getValue(mActivityId)
         }
-        mActivityComponent = configPersistentComponent.activityComponet(ActivityModule(this))
+        mActivityComponent = configPersistentComponent.activityComponent(ActivityModule(this))
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {

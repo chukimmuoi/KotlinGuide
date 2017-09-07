@@ -14,7 +14,6 @@ import dagger.Subcomponent
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
  */
-
 @PerActivity
 @Subcomponent(modules = arrayOf(ActivityModule::class))
 interface ActivityComponent {

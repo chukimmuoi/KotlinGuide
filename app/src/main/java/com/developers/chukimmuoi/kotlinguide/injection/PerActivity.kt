@@ -13,7 +13,6 @@ import javax.inject.Scope
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
  */
-
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
 annotation class PerActivity

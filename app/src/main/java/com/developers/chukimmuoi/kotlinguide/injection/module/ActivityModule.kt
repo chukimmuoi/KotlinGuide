@@ -15,7 +15,6 @@ import dagger.Provides
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
  */
-
 @Module
 class ActivityModule(val mActivity: Activity) {
 

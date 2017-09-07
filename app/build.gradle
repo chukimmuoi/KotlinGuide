@@ -23,10 +23,6 @@ android {
     }
 }
 
-kapt {
-    generateStubs = true
-}
-
 dependencies {
     final DAGGER_VERSION = '2.11'
     final JSR250_VERSION = '1.0'
@@ -44,8 +40,8 @@ dependencies {
     def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
     annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
-    provided "javax.annotation:jsr250-api:$JSR250_VERSION" //Auto generate code
-    kapt daggerCompiler
+    provided "javax.annotation:jsr250-api:$JSR250_VERSION" // Auto generate code.
+    kapt daggerCompiler // Use Kotlin.
 
     // Log.
     compile "com.jakewharton.timber:timber:$LOG_VERSION"
