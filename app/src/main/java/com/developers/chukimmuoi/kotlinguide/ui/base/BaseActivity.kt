@@ -10,7 +10,6 @@ import com.developers.chukimmuoi.kotlinguide.injection.module.ActivityModule
 import timber.log.Timber
 import java.util.concurrent.atomic.AtomicLong
 
-
 /**
  * @author  : Hanet Electronics
  * @Skype   : chukimmuoi
@@ -22,8 +21,6 @@ import java.util.concurrent.atomic.AtomicLong
  */
 class BaseActivity : AppCompatActivity() {
 
-    private val TAG = BaseActivity::class.java.name
-
     private val KEY_ACTIVITY_ID = "KEY_ACTIVITY_ID"
     private val NEXT_ID = AtomicLong(0)
     private val sComponentsMap: MutableMap<Long, ConfigPersistentComponent> = HashMap()
@@ -34,12 +31,16 @@ class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Create the ActivityComponent and reuses cached ConfigPersistentComponent if this is
+        // being called after a configuration change.
         mActivityId = savedInstanceState?.getLong(KEY_ACTIVITY_ID) ?: NEXT_ID.getAndIncrement()
 
         var configPersistentComponent: ConfigPersistentComponent
         if (!sComponentsMap.containsKey(mActivityId)) {
-            Timber.i("Creating new ConfigPersistentComponent id=%d", mActivityId);
-            configPersistentComponent = DaggerConfigPersistentComponent.builder().applicationComponent(KotlinApplication.get(this).getComponent()).build()
+            Timber.i("Creating new ConfigPersistentComponent id=%d", mActivityId)
+            configPersistentComponent = DaggerConfigPersistentComponent.builder()
+                    .applicationComponent(KotlinApplication.get(this).getComponent())
+                    .build()
             sComponentsMap.put(mActivityId, configPersistentComponent)
         } else {
             Timber.i("Reusing ConfigPersistentComponent id=%d", mActivityId);
@@ -61,5 +62,5 @@ class BaseActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    fun activityComponen(): ActivityComponent = mActivityComponent
+    fun activityComponent(): ActivityComponent = mActivityComponent
 }
