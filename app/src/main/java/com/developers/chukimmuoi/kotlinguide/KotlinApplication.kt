@@ -27,9 +27,6 @@ class KotlinApplication : Application() {
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
-        }
-
-        if (BuildConfig.USE_CRASHLYTICS) {
             Fabric.with(this, Crashlytics())
         }
     }

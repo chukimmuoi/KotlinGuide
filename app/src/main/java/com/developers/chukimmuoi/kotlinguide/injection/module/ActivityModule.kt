@@ -16,7 +16,7 @@ import dagger.Provides
  * Created by chukimmuoi on 03/09/2017.
  */
 @Module
-class ActivityModule(val mActivity: Activity) {
+class ActivityModule(private val mActivity: Activity) {
 
     @Provides
     fun provideActivity() : Activity = mActivity

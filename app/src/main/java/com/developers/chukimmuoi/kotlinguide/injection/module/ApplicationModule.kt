@@ -15,9 +15,8 @@ import dagger.Provides
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
  */
-
 @Module
-class ApplicationModule(val mApplication: Application) {
+class ApplicationModule(private val mApplication: Application) {
 
     @Provides
     fun provideApplication(): Application = mApplication
