@@ -4,6 +4,9 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+// TODO uncomment line below after adding fabric api secret and key to fabric.properties
+apply plugin: 'io.fabric' // Fabric crash. Add key in AndroidManifest.xml.
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
@@ -19,6 +22,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // enable crashlytics
+            buildConfigField "boolean", "USE_CRASHLYTICS", "true"
+            ext.enableCrashlytics = true
+        }
+        debug {
+            // disable crashlytics
+            buildConfigField "boolean", "USE_CRASHLYTICS", "false"
+            ext.enableCrashlytics = false
         }
     }
 }
@@ -46,6 +57,7 @@ dependencies {
     // Log.
     compile "com.jakewharton.timber:timber:$LOG_VERSION"
 
+    // Crash.
     compile('com.crashlytics.sdk.android:crashlytics:2.5.7@aar') {
         transitive = true
     }
