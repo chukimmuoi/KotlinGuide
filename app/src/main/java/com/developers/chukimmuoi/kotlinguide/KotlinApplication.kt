@@ -20,7 +20,11 @@ import timber.log.Timber
  */
 class KotlinApplication : Application() {
 
-    private lateinit var mApplicationComponent: ApplicationComponent
+    private var mApplicationComponent: ApplicationComponent
+
+    init {
+        mApplicationComponent = DaggerApplicationComponent.builder().applicationModule(ApplicationModule(this)).build()
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -40,9 +44,6 @@ class KotlinApplication : Application() {
 
 
     fun getComponent(): ApplicationComponent {
-        if (mApplicationComponent == null) {
-            mApplicationComponent = DaggerApplicationComponent.builder().applicationModule(ApplicationModule(this)).build()
-        }
         return mApplicationComponent
     }
 

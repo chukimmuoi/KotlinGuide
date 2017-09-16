@@ -4,22 +4,20 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.developers.chukimmuoi.kotlinguide.R
 import com.developers.chukimmuoi.kotlinguide.data.SyncService
 import com.developers.chukimmuoi.kotlinguide.data.model.Ribot
 import com.developers.chukimmuoi.kotlinguide.ui.base.BaseActivity
 import com.developers.chukimmuoi.kotlinguide.util.DialogFactory
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainMvpView {
 
-    @Inject private lateinit var mMainPresenter: MainPresenter
-    @Inject private lateinit var mRibotsAdapter: RibotsAdapter
-
-    private lateinit var mRecyclerView: RecyclerView
+    @Inject lateinit var mMainPresenter: MainPresenter
+    @Inject lateinit var mRibotsAdapter: RibotsAdapter
 
     /**
      * Return an Intent to start this Activity.

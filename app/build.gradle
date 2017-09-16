@@ -54,7 +54,6 @@ dependencies {
     // Dagger.
     def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
-    provided "javax.annotation:jsr250-api:$JSR250_VERSION" // Auto generate code.
     kapt daggerCompiler // Use Kotlin.
 
     // Log.

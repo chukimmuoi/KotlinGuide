@@ -2,11 +2,14 @@ package com.developers.chukimmuoi.kotlinguide.injection.component
 
 import android.app.Application
 import android.content.Context
+import com.developers.chukimmuoi.kotlinguide.data.DataManager
 import com.developers.chukimmuoi.kotlinguide.data.SyncService
 import com.developers.chukimmuoi.kotlinguide.injection.ApplicationContext
 import com.developers.chukimmuoi.kotlinguide.injection.module.ApplicationModule
 import dagger.Component
 import javax.inject.Singleton
+
+
 
 /**
  * @author  : Hanet Electronics
@@ -25,5 +28,6 @@ interface ApplicationComponent {
 
     @ApplicationContext fun context(): Context
     fun application(): Application
+    fun dataManager(): DataManager
 
 }

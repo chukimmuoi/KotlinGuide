@@ -2,9 +2,11 @@ package com.developers.chukimmuoi.kotlinguide.injection.module
 
 import android.app.Application
 import android.content.Context
+import com.developers.chukimmuoi.kotlinguide.data.remote.RibotsService
 import com.developers.chukimmuoi.kotlinguide.injection.ApplicationContext
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 /**
  * @author  : Hanet Electronics
@@ -24,5 +26,9 @@ class ApplicationModule(private val mApplication: Application) {
     @Provides
     @ApplicationContext
     fun provideContext(): Context = mApplication
+
+    @Provides
+    @Singleton
+    fun provideRibotsService() = RibotsService.Creator.newRibotsService()
 
 }

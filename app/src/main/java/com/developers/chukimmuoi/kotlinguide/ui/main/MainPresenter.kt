@@ -44,7 +44,7 @@ class MainPresenter
 
                     override fun onError(e: Throwable) {
                         Timber.e(e, "There was an error loading the ribots.")
-                        mMvpView?.showError()
+                        //mMvpView?.showError()
                     }
 
                     override fun onSubscribe(d: Disposable) {
