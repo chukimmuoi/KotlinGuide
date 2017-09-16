@@ -4,6 +4,12 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-
     <color name="gray">#ffdfdfdf</color>
+    
+    <color name="colorDialogBackground">#FFFFFF</color>
+    <color name="colorDialogTitle">#000000</color>
+    <color name="colorDialogContent">#9E9E9E</color>
+    <color name="colorDialogPositive">#2196F3</color>
+    <color name="colorDialogNegative">#2196F3</color>
+    <color name="colorDialogNeutral">#2196F3</color>
 </resources>

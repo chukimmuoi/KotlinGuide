@@ -71,9 +71,10 @@ class MainActivity : BaseActivity(), MainMvpView {
     }
 
     override fun showError() {
-        DialogFactory.createGenericErrorDialog(this,
-                getString(R.string.error_loading_ribots))
-                .show()
+        DialogFactory.showDialogBasic(this,
+                R.string.dialog_error_title,
+                R.string.error_loading_ribots,
+                R.string.dialog_action_ok)
     }
 
 }

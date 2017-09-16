@@ -35,8 +35,8 @@ class MainPresenter
     fun loadRibots() {
         checkViewAttached()
         mDataManager.getRibots()
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<List<Ribot>> {
                     override fun onComplete() {
 
@@ -44,7 +44,7 @@ class MainPresenter
 
                     override fun onError(e: Throwable) {
                         Timber.e(e, "There was an error loading the ribots.")
-                        //mMvpView?.showError()
+                        mMvpView?.showError()
                     }
 
                     override fun onSubscribe(d: Disposable) {
