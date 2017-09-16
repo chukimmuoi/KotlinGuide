@@ -10,10 +10,10 @@ package com.developers.chukimmuoi.kotlinguide.ui.base
  * @Project : KotlinGuide
  * Created by chukimmuoi on 02/09/2017.
  */
-class BasePreseneter<in T : MvpView> : Preseneter<T> {
+open class BasePresenter<T : MvpView> : Preseneter<T> {
 
-    private var mMvpView: T? = null
-        get() = mMvpView
+    var mMvpView: T? = null
+        private set
 
     override fun attachView(mvpView: T) {
         mMvpView = mvpView
@@ -23,10 +23,11 @@ class BasePreseneter<in T : MvpView> : Preseneter<T> {
         mMvpView = null
     }
 
-    fun isViewAttached(): Boolean = mMvpView != null
+    private val isViewAttached: Boolean
+        get() = mMvpView != null
 
     fun checkViewAttached() {
-        if (!isViewAttached()) throw MvpViewNotAttachedException()
+        if (!isViewAttached) throw MvpViewNotAttachedException()
     }
 
     class MvpViewNotAttachedException : RuntimeException("Please call Presenter.attachView(MvpView) before requesting data to the Presenter")

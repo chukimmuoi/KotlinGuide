@@ -3,6 +3,7 @@
     package="com.developers.chukimmuoi.kotlinguide">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".KotlinApplication"
@@ -20,10 +21,22 @@
             </intent-filter>
         </activity>
 
-        <!--Use Fabric. https://fabric.io/kits/android/crashlytics/install-->
+        <!-- Use Fabric. https://fabric.io/kits/android/crashlytics/install -->
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="4a223208e220f1dce8e9ea2ffb3f7d81a19db6cf" />
+
+        <service
+            android:name=".data.SyncService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <receiver android:name=".data.SyncService$SyncOnConnectionAvailable"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

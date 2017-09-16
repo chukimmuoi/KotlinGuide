@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong
  * @Project : KotlinGuide
  * Created by chukimmuoi on 02/09/2017.
  */
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     private val KEY_ACTIVITY_ID = "KEY_ACTIVITY_ID"
     private val NEXT_ID = AtomicLong(0)
