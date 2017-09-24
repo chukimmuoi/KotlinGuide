@@ -71,6 +71,7 @@ dependencies {
 
     // Sqlbrite.
     compile("com.squareup.sqlbrite2:sqlbrite:$SQLBRITE_VERSION") {
+        // Loop libary.
         exclude group: 'com.android.support', module: 'support-annotations'
     }
     compile "com.squareup.sqlbrite2:sqlbrite-kotlin:$SQLBRITE_VERSION"

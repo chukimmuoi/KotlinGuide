@@ -17,7 +17,7 @@ import com.developers.chukimmuoi.kotlinguide.R
 object DialogFactory {
     private var mMaterialDialog: MaterialDialog? = null
 
-    fun dismissDialog() {
+    private fun dismissDialog() {
         mMaterialDialog?.dismiss()
         mMaterialDialog = null
     }

@@ -17,7 +17,7 @@ import java.util.*
  */
 class Db {
     companion object RibotProfileTable {
-        public val TABLE_NAME = "ribot_profile"
+        val TABLE_NAME = "ribot_profile"
 
         private val COLUMN_EMAIL = "email"
         private val COLUMN_FIRST_NAME = "first_name"

@@ -12,6 +12,8 @@ import javax.inject.Qualifier
  * @Website : http://hanet.com/
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
+ *
+ * Phân biệt kiểu trả về giống nhau giữa ActivityContext và ApplicationContext.
  */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)

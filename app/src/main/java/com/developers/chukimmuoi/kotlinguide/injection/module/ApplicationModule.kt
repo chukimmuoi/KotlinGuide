@@ -16,19 +16,23 @@ import javax.inject.Singleton
  * @Website : http://hanet.com/
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
+ *
+ * Provide application-level dependencies.
  */
 @Module
 class ApplicationModule(private val mApplication: Application) {
 
     @Provides
+    @Singleton // Xác định phạm vi phải trùng với component sử dụng module.
     fun provideApplication(): Application = mApplication
 
     @Provides
-    @ApplicationContext
+    @Singleton // Xác định phạm vi phải trùng với component sử dụng module.
+    @ApplicationContext // Phân biệt khi trùng kiểu trả về.
     fun provideContext(): Context = mApplication
 
     @Provides
-    @Singleton
-    fun provideRibotsService() = RibotsService.Creator.newRibotsService()
+    @Singleton // Xác định phạm vi phải trùng với component sử dụng module
+    fun provideRibotsService(): RibotsService = RibotsService.Creator.newRibotsService()
 
 }

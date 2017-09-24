@@ -3,6 +3,7 @@ package com.developers.chukimmuoi.kotlinguide.injection.module
 import android.app.Activity
 import android.content.Context
 import com.developers.chukimmuoi.kotlinguide.injection.ActivityContext
+import com.developers.chukimmuoi.kotlinguide.injection.PerActivity
 import dagger.Module
 import dagger.Provides
 
@@ -19,10 +20,12 @@ import dagger.Provides
 class ActivityModule(private val mActivity: Activity) {
 
     @Provides
+    @PerActivity // Xác định phạm vi phải trùng với component sử dụng module.
     fun provideActivity() : Activity = mActivity
 
     @Provides
-    @ActivityContext
+    @PerActivity // Xác định phạm vi phải trùng với component sử dụng module.
+    @ActivityContext // Phân biệt khi trùng kiểu trả về.
     fun provideContext(): Context = mActivity
 
 }

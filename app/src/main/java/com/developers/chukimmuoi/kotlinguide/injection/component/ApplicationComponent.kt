@@ -9,8 +9,6 @@ import com.developers.chukimmuoi.kotlinguide.injection.module.ApplicationModule
 import dagger.Component
 import javax.inject.Singleton
 
-
-
 /**
  * @author  : Hanet Electronics
  * @Skype   : chukimmuoi
@@ -19,13 +17,20 @@ import javax.inject.Singleton
  * @Website : http://hanet.com/
  * @Project : KotlinGuide
  * Created by chukimmuoi on 03/09/2017.
+ *
+ * [ApplicationComponent] là cha của [ConfigPersistentComponent] -> Dependent Components
  */
-@Singleton
-@Component(modules = arrayOf(ApplicationModule::class))
+@Singleton // Scope
+@Component(
+        // https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2#dependent-components
+        modules = arrayOf(ApplicationModule::class)
+)
 interface ApplicationComponent {
 
+    // Vì là Dependent Components nên inject sẽ được thực hiện ở class cha.
     fun inject(syncService: SyncService)
 
+    // Các phương thức được khai báo public ở đây để class con (ConfigPersistentComponent) có thể sử dụng.
     @ApplicationContext fun context(): Context
     fun application(): Application
     fun dataManager(): DataManager
